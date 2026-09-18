@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "title": "Shimmer",
+  "description": "Shimmer helper for loading placeholders.",
+  "dependencies": [
+    "cn"
+  ],
+  "files": [
+    {
+      "path": "src/lib/shimmer.ts",
+      "content": "import { cn } from \"cn\"\r\n\r\nfunction shimmer(...classNames: Parameters<typeof cn>) {\r\n  return cn(\"bg-muted animate-shimmer rounded-md\", ...classNames)\r\n}\r\n\r\nexport { shimmer }\r\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}
