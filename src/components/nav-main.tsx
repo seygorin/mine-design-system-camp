@@ -26,7 +26,7 @@ export function NavMain({
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton tooltip="Showcase">
-            <PaletteIcon />
+            <PaletteIcon className="shadow-cubist-icon" />
             <span>Showcase</span>
           </SidebarMenuButton>
           <SidebarMenuSub>

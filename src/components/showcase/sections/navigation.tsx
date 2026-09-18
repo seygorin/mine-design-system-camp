@@ -1,5 +1,5 @@
-import { Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Search } from "lucide-react"
+import { useEffect, useState } from "react"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,8 +7,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/breadcrumb"
+import { Button } from "@/components/ui/button"
 import {
   CommandDialog,
   CommandEmpty,
@@ -18,7 +18,7 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/components/ui/command";
+} from "@/components/ui/command"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,32 +26,29 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Kbd, KbdGroup } from "@/components/ui/kbd";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { DemoBlock } from "../demo-block";
+} from "@/components/ui/dropdown-menu"
+import { Kbd, KbdGroup } from "@/components/ui/kbd"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { DemoBlock } from "../demo-block"
 
 export function NavigationSection() {
-  const [commandOpen, setCommandOpen] = useState(false);
+  const [commandOpen, setCommandOpen] = useState(false)
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
-        event.preventDefault();
-        setCommandOpen((open) => !open);
+        event.preventDefault()
+        setCommandOpen((open) => !open)
       }
     }
 
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, []);
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [])
 
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <DemoBlock
-        title="Breadcrumb"
-        description="Путь до текущего раздела витрины."
-      >
+      <DemoBlock title="Breadcrumb" description="Путь до текущего раздела витрины.">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -69,10 +66,7 @@ export function NavigationSection() {
         </Breadcrumb>
       </DemoBlock>
 
-      <DemoBlock
-        title="Command palette"
-        description="Открывается по ⌘K / Ctrl+K или кнопкой."
-      >
+      <DemoBlock title="Command palette" description="Открывается по ⌘K / Ctrl+K или кнопкой.">
         <Button variant="outline" onClick={() => setCommandOpen(true)}>
           <Search />
           Поиск компонента
@@ -111,7 +105,7 @@ export function NavigationSection() {
             <TabsTrigger value="usage">Использование</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="text-muted-foreground">
-            Активный триггер подсвечивается фоном `background`.
+            Активный триггер — вторая плоскость primary за текстом.
           </TabsContent>
           <TabsContent value="tokens" className="text-muted-foreground">
             Плашка использует токен `muted`.
@@ -137,5 +131,5 @@ export function NavigationSection() {
         </DropdownMenu>
       </DemoBlock>
     </div>
-  );
+  )
 }

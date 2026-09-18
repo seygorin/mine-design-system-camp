@@ -2,15 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "spinner",
   "title": "Spinner",
-  "description": "Loading spinner.",
+  "description": "Square loading indicator.",
   "dependencies": [
-    "cn",
-    "lucide-react"
+    "cn"
   ],
   "files": [
     {
       "path": "src/components/ui/spinner.tsx",
-      "content": "import { cn } from \"cn\"\nimport { Loader2Icon } from \"lucide-react\"\n\nfunction Spinner({ className, ...props }: React.ComponentProps<\"svg\">) {\n  return (\n    <Loader2Icon data-slot=\"spinner\" role=\"status\" aria-label=\"Loading\" className={cn(\"size-4 animate-spin\", className)} {...props} />\n  )\n}\n\nexport { Spinner }\n",
+      "content": "import { cn } from \"cn\"\n\nfunction Spinner({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"spinner\"\n      role=\"status\"\n      aria-label=\"Loading\"\n      className={cn(\"cubist-portrait cubist-portrait-live size-4 shadow-cubist\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Spinner }\n",
       "type": "registry:ui"
     }
   ],

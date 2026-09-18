@@ -4,14 +4,8 @@ import { NavUser } from "@/components/nav-user"
 import { SiteHeader } from "@/components/site-header"
 import { SECTIONS, type SectionId } from "@/components/showcase/sections"
 import { Badge } from "@/components/ui/badge"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
-import {
-  TypographyH1,
-  TypographyMuted,
-} from "@/components/ui/typography"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { TypographyH1, TypographyMuted } from "@/components/ui/typography"
 
 function isSectionId(value: string): value is SectionId {
   return SECTIONS.some((section) => section.id === value)
@@ -63,17 +57,24 @@ function App() {
   }, [])
 
   return (
-    <div className="[--header-height:calc(--spacing(14))]">
+    <div className="bg-surface-gradient min-h-svh [--header-height:calc(--spacing(14))]">
       <SidebarProvider className="flex flex-col">
         <SiteHeader sectionTitle={section.title} />
         <div className="flex flex-1">
           <AppSidebar activeId={activeId} />
-          <SidebarInset className="min-w-0 bg-surface-gradient">
+          <SidebarInset className="min-w-0">
             <div className="flex min-w-0 flex-1 flex-col gap-4 p-4">
               <div className="space-y-2">
                 <Badge variant="secondary">{section.title}</Badge>
-                <TypographyH1 className="text-3xl sm:text-4xl">
-                  mine-design-system-camp
+                <TypographyH1 className="offset-cubist relative isolate w-fit text-3xl sm:text-4xl">
+                  <span
+                    aria-hidden
+                    className="absolute inset-0 -z-10 translate-x-[var(--cubist-shadow-x)]
+                      translate-y-[var(--cubist-shadow-y)] bg-primary"
+                  />
+                  <span className="relative block bg-background px-2 py-1">
+                    mine-design-system-camp
+                  </span>
                 </TypographyH1>
                 <TypographyMuted>{section.description}</TypographyMuted>
               </div>

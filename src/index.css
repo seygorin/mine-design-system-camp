@@ -4,8 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans:
+    "Jura", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -33,15 +34,48 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+  --radius-4xl: 0;
+
+  --text-xs: 0.875rem;
+  --text-xs--line-height: calc(1.25 / 0.875);
+  --text-sm: 1rem;
+  --text-sm--line-height: calc(1.5 / 1);
+  --text-base: 1.125rem;
+  --text-base--line-height: calc(1.75 / 1.125);
+  --text-lg: 1.25rem;
+  --text-lg--line-height: calc(1.75 / 1.25);
+  --text-xl: 1.5rem;
+  --text-xl--line-height: calc(2 / 1.5);
+  --text-2xl: 1.875rem;
+  --text-2xl--line-height: calc(2.25 / 1.875);
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: calc(2.5 / 2.25);
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 1;
+  --text-5xl: 3.75rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 4.5rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 6rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 8rem;
+  --text-8xl--line-height: 1;
 }
 
 /* Layer A — Design Tokens (shadcn HSL, pastel pink / blue) */
 :root {
-  --radius: 0.625rem;
+  --radius: 0;
+  --cubist-shadow-offset: 4px;
+  --cubist-shadow-color: hsl(var(--foreground) / 0.18);
+  --cubist-shadow-x: var(--cubist-shadow-offset);
+  --cubist-shadow-y: var(--cubist-shadow-offset);
 
   --background: 250 100% 99%;
   --foreground: 222 20% 25%;
@@ -90,6 +124,8 @@
 }
 
 .dark {
+  --cubist-shadow-color: hsl(var(--foreground) / 0.28);
+
   --background: 230 25% 12%;
   --foreground: 250 30% 96%;
 
@@ -141,7 +177,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans text-base antialiased;
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
@@ -152,7 +188,7 @@
   .bg-surface-gradient {
     background-attachment: fixed;
     background-image: linear-gradient(
-      135deg,
+      180deg,
       rgb(var(--surface-gradient-start)) 0%,
       rgb(var(--surface-gradient-mid)) 18%,
       rgb(var(--surface-gradient-blue)) 36%,
@@ -164,23 +200,79 @@
   }
 
   .animate-shimmer {
+    --shimmer-angle: 90deg;
+    --shimmer-from-x: -100%;
+    --shimmer-from-y: 0;
+    --shimmer-to-x: 200%;
+    --shimmer-to-y: 0;
+    --shimmer-size: 200% 100%;
     background-image: linear-gradient(
-      90deg,
+      var(--shimmer-angle),
       transparent 0%,
-      hsl(var(--foreground) / 0.08) 50%,
+      rgb(var(--surface-gradient-start)) 12%,
+      rgb(var(--surface-gradient-mid)) 22%,
+      rgb(var(--surface-gradient-blue)) 36%,
+      rgb(var(--surface-gradient-green)) 50%,
+      rgb(var(--surface-gradient-yellow)) 64%,
+      rgb(var(--surface-gradient-orange)) 78%,
+      rgb(var(--surface-gradient-end)) 88%,
       transparent 100%
     );
-    background-size: 200% 100%;
+    background-size: var(--shimmer-size);
     background-repeat: no-repeat;
-    animation: shimmer 1.6s ease-in-out infinite;
+    animation: shimmer 2.2s linear infinite;
   }
+}
+
+@utility shadow-cubist {
+  box-shadow: var(--cubist-shadow-x) var(--cubist-shadow-y) 0 0 var(--cubist-shadow-color);
+}
+
+@utility shadow-cubist-icon {
+  filter: drop-shadow(var(--cubist-shadow-x) var(--cubist-shadow-y) 0 var(--cubist-shadow-color));
+}
+
+@utility press-cubist {
+  transition-property: transform, box-shadow;
+  transition-duration: 80ms;
+  &:active:not(:disabled):not([aria-disabled="true"]) {
+    transform: translate(var(--cubist-shadow-x), var(--cubist-shadow-y));
+    box-shadow: none;
+  }
+}
+
+@utility cubist-portrait {
+  --cubist-portrait-split-dir: to right;
+  --cubist-portrait-overlay-dir: to bottom;
+  --cubist-portrait-a: var(--primary);
+  --cubist-portrait-b: var(--secondary);
+  --cubist-portrait-c: var(--accent);
+  --cubist-portrait-split: 50%;
+  --cubist-portrait-overlay: 55%;
+  background-image:
+    linear-gradient(
+      var(--cubist-portrait-overlay-dir),
+      transparent 0 var(--cubist-portrait-overlay),
+      hsl(var(--cubist-portrait-c)) var(--cubist-portrait-overlay) 100%
+    ),
+    linear-gradient(
+      var(--cubist-portrait-split-dir),
+      hsl(var(--cubist-portrait-a)) 0 var(--cubist-portrait-split),
+      hsl(var(--cubist-portrait-b)) var(--cubist-portrait-split) 100%
+    );
 }
 
 @keyframes shimmer {
   0% {
-    background-position: -100% 0;
+    background-position: var(--shimmer-from-x) var(--shimmer-from-y);
   }
   100% {
-    background-position: 200% 0;
+    background-position: var(--shimmer-to-x) var(--shimmer-to-y);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
   }
 }

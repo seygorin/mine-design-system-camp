@@ -31,8 +31,11 @@ export function AppSidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" tooltip="Design System">
-              <div className="bg-primary text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
-                <SwatchBookIcon className="size-4" />
+              <div
+                className="bg-primary text-primary-foreground flex aspect-square size-8 items-center
+                  justify-center overflow-visible rounded-none"
+              >
+                <SwatchBookIcon className="size-4 shadow-cubist-icon" />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">Design System</span>

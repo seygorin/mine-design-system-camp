@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -8,10 +8,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Kbd } from "@/components/ui/kbd";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Kbd } from "@/components/ui/kbd"
+import { Label } from "@/components/ui/label"
 import {
   Sheet,
   SheetContent,
@@ -20,21 +20,14 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { DemoBlock } from "../demo-block";
+} from "@/components/ui/sheet"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { DemoBlock } from "../demo-block"
 
 export function OverlaysSection() {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <DemoBlock
-        title="Dialog"
-        description="Модальное окно по центру, закрывается по Esc."
-      >
+      <DemoBlock title="Dialog" description="Модальное окно по центру, закрывается по Esc.">
         <Dialog>
           <DialogTrigger asChild>
             <Button>Открыть диалог</Button>
@@ -42,9 +35,7 @@ export function OverlaysSection() {
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Переименовать проект</DialogTitle>
-              <DialogDescription>
-                Изменения применятся сразу после сохранения.
-              </DialogDescription>
+              <DialogDescription>Изменения применятся сразу после сохранения.</DialogDescription>
             </DialogHeader>
             <div className="space-y-2">
               <Label htmlFor="dialog-name">Название</Label>
@@ -60,11 +51,8 @@ export function OverlaysSection() {
         </Dialog>
       </DemoBlock>
 
-      <DemoBlock
-        title="Sheet"
-        description="Боковая панель — удобна для мобильных экранов."
-      >
-        <div className="flex flex-wrap gap-2">
+      <DemoBlock title="Sheet" description="Боковая панель — удобна для мобильных экранов.">
+        <div className="flex flex-wrap gap-4">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="secondary">Справа</Button>
@@ -72,9 +60,7 @@ export function OverlaysSection() {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>Настройки темы</SheetTitle>
-                <SheetDescription>
-                  Токены применяются ко всем компонентам сразу.
-                </SheetDescription>
+                <SheetDescription>Токены применяются ко всем компонентам сразу.</SheetDescription>
               </SheetHeader>
               <SheetFooter>
                 <Button>Применить</Button>
@@ -89,9 +75,7 @@ export function OverlaysSection() {
             <SheetContent side="bottom">
               <SheetHeader>
                 <SheetTitle>Мобильный вариант</SheetTitle>
-                <SheetDescription>
-                  Панель снизу — mobile-first паттерн.
-                </SheetDescription>
+                <SheetDescription>Панель снизу — mobile-first паттерн.</SheetDescription>
               </SheetHeader>
             </SheetContent>
           </Sheet>
@@ -100,7 +84,7 @@ export function OverlaysSection() {
 
       <DemoBlock
         title="Tooltip"
-        description="Подсказка при наведении, поддерживает Kbd внутри."
+        description="Квадратная плоскость с Cubist Shadow, без стрелки."
         className="lg:col-span-2"
       >
         <div className="flex flex-wrap gap-3">
@@ -108,7 +92,7 @@ export function OverlaysSection() {
             <TooltipTrigger asChild>
               <Button variant="outline">Наведи на меня</Button>
             </TooltipTrigger>
-            <TooltipContent>Подсказка на Mulish</TooltipContent>
+            <TooltipContent>Подсказка на Jura</TooltipContent>
           </Tooltip>
 
           <Tooltip>
@@ -122,5 +106,5 @@ export function OverlaysSection() {
         </div>
       </DemoBlock>
     </div>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardContent,
@@ -6,16 +6,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
-import { DemoBlock } from "../demo-block";
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { DemoBlock } from "../demo-block"
 
 const REGISTRY_ITEMS = [
   "breadcrumb",
@@ -38,21 +34,16 @@ const REGISTRY_ITEMS = [
   "textarea",
   "tooltip",
   "typography",
-];
+]
 
 export function LayoutSection() {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <DemoBlock
-        title="Card & Separator"
-        description="Базовая раскладка блока с разделителями."
-      >
+      <DemoBlock title="Card & Separator" description="Базовая раскладка блока с разделителями.">
         <Card>
           <CardHeader>
             <CardTitle>Registry</CardTitle>
-            <CardDescription>
-              Компоненты раздаются как статические JSON.
-            </CardDescription>
+            <CardDescription>Компоненты раздаются как статические JSON.</CardDescription>
           </CardHeader>
           <CardContent className="flex items-center gap-3 text-sm">
             <span>19 items</span>
@@ -69,11 +60,8 @@ export function LayoutSection() {
         </Card>
       </DemoBlock>
 
-      <DemoBlock
-        title="Scroll Area"
-        description="Прокрутка с кастомным скроллбаром."
-      >
-        <ScrollArea className="h-48 rounded-md border p-3">
+      <DemoBlock title="Scroll Area" description="Прокрутка с кастомным скроллбаром.">
+        <ScrollArea className="h-48 rounded-none border p-3 shadow-cubist">
           <div className="space-y-2">
             {REGISTRY_ITEMS.map((item) => (
               <div key={item} className="flex items-center justify-between">
@@ -92,31 +80,25 @@ export function LayoutSection() {
       >
         <ResizablePanelGroup
           orientation="horizontal"
-          className="min-h-40 rounded-lg border"
+          className="min-h-40 rounded-none border-2 shadow-cubist"
         >
           <ResizablePanel defaultSize="35" minSize="20">
-            <div className="flex h-full items-center justify-center p-4 text-sm">
-              Sidebar
-            </div>
+            <div className="flex h-full items-center justify-center p-4 text-sm">Sidebar</div>
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize="65">
             <ResizablePanelGroup orientation="horizontal">
               <ResizablePanel defaultSize="35" minSize="20">
-                <div className="flex h-full items-center justify-center p-4 text-sm">
-                  Content
-                </div>
+                <div className="flex h-full items-center justify-center p-4 text-sm">Content</div>
               </ResizablePanel>
               <ResizableHandle withHandle />
               <ResizablePanel defaultSize="35" minSize="20">
-                <div className="flex h-full items-center justify-center p-4 text-sm">
-                  Preview
-                </div>
+                <div className="flex h-full items-center justify-center p-4 text-sm">Preview</div>
               </ResizablePanel>
             </ResizablePanelGroup>
           </ResizablePanel>
         </ResizablePanelGroup>
       </DemoBlock>
     </div>
-  );
+  )
 }

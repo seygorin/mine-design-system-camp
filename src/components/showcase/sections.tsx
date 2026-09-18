@@ -1,39 +1,26 @@
-import {
-  Blocks,
-  LayoutPanelLeft,
-  MousePointerClick,
-  Palette,
-  SquarePen,
-  Waves,
-} from "lucide-react";
-import { FeedbackSection } from "./sections/feedback";
-import { FoundationsSection } from "./sections/foundations";
-import { FormsSection } from "./sections/forms";
-import { LayoutSection } from "./sections/layout";
-import { NavigationSection } from "./sections/navigation";
-import { OverlaysSection } from "./sections/overlays";
+import { Blocks, LayoutPanelLeft, MousePointerClick, Palette, SquarePen, Waves } from "lucide-react"
+import { FeedbackSection } from "./sections/feedback"
+import { FoundationsSection } from "./sections/foundations"
+import { FormsSection } from "./sections/forms"
+import { LayoutSection } from "./sections/layout"
+import { NavigationSection } from "./sections/navigation"
+import { OverlaysSection } from "./sections/overlays"
 
-export type SectionId =
-  | "foundations"
-  | "navigation"
-  | "forms"
-  | "overlays"
-  | "layout"
-  | "feedback";
+export type SectionId = "foundations" | "navigation" | "forms" | "overlays" | "layout" | "feedback"
 
 export type Section = {
-  id: SectionId;
-  title: string;
-  description: string;
-  icon: typeof Palette;
-  Component: () => React.ReactElement;
-};
+  id: SectionId
+  title: string
+  description: string
+  icon: typeof Palette
+  Component: () => React.ReactElement
+}
 
 export const SECTIONS: Section[] = [
   {
     id: "foundations",
     title: "Foundations",
-    description: "Типографика, токены и радужный фон",
+    description: "Типографика, токены, Cubism и радужный фон",
     icon: Palette,
     Component: FoundationsSection,
   },
@@ -72,4 +59,4 @@ export const SECTIONS: Section[] = [
     icon: Waves,
     Component: FeedbackSection,
   },
-];
+]

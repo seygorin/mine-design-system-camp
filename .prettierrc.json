@@ -1,0 +1,10 @@
+{
+  "printWidth": 100,
+  "semi": false,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "proseWrap": "always",
+  "plugins": ["prettier-plugin-classnames"],
+  "customFunctions": ["cn", "clsx", "cva"],
+  "endingPosition": "absolute"
+}

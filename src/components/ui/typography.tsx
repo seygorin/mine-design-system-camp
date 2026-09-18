@@ -4,10 +4,7 @@ function TypographyH1({ className, ...props }: React.ComponentProps<"h1">) {
   return (
     <h1
       data-slot="typography-h1"
-      className={cn(
-        "scroll-m-20 text-4xl font-bold tracking-tight text-balance",
-        className
-      )}
+      className={cn("scroll-m-20 text-4xl font-bold tracking-tight text-balance", className)}
       {...props}
     />
   )
@@ -30,10 +27,7 @@ function TypographyH3({ className, ...props }: React.ComponentProps<"h3">) {
   return (
     <h3
       data-slot="typography-h3"
-      className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
-        className
-      )}
+      className={cn("scroll-m-20 text-xl font-semibold tracking-tight", className)}
       {...props}
     />
   )
@@ -43,10 +37,7 @@ function TypographyH4({ className, ...props }: React.ComponentProps<"h4">) {
   return (
     <h4
       data-slot="typography-h4"
-      className={cn(
-        "scroll-m-20 text-lg font-semibold tracking-tight",
-        className
-      )}
+      className={cn("scroll-m-20 text-lg font-semibold tracking-tight", className)}
       {...props}
     />
   )
@@ -54,11 +45,7 @@ function TypographyH4({ className, ...props }: React.ComponentProps<"h4">) {
 
 function TypographyP({ className, ...props }: React.ComponentProps<"p">) {
   return (
-    <p
-      data-slot="typography-p"
-      className={cn("leading-7 not-first:mt-6", className)}
-      {...props}
-    />
+    <p data-slot="typography-p" className={cn("leading-7 not-first:mt-6", className)} {...props} />
   )
 }
 
@@ -102,10 +89,7 @@ function TypographyMuted({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
-function TypographyBlockquote({
-  className,
-  ...props
-}: React.ComponentProps<"blockquote">) {
+function TypographyBlockquote({ className, ...props }: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
       data-slot="typography-blockquote"
@@ -125,15 +109,13 @@ function TypographyList({ className, ...props }: React.ComponentProps<"ul">) {
   )
 }
 
-function TypographyInlineCode({
-  className,
-  ...props
-}: React.ComponentProps<"code">) {
+function TypographyInlineCode({ className, ...props }: React.ComponentProps<"code">) {
   return (
     <code
       data-slot="typography-inline-code"
       className={cn(
-        "bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold",
+        `bg-muted relative rounded-none px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold
+        shadow-cubist`,
         className
       )}
       {...props}

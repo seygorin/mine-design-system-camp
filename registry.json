@@ -161,8 +161,8 @@
       "name": "spinner",
       "type": "registry:ui",
       "title": "Spinner",
-      "description": "Loading spinner.",
-      "dependencies": ["cn", "lucide-react"],
+      "description": "Square loading indicator.",
+      "dependencies": ["cn"],
       "files": [
         {
           "path": "src/components/ui/spinner.tsx",
